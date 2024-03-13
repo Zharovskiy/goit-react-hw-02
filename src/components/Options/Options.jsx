@@ -1,4 +1,4 @@
-const Options = ({ text, updateFeedback }) => {
+const Options = ({ text, updateFeedback, total }) => {
   return (
     <button
       onClick={() => {
