@@ -1,0 +1,36 @@
+.text {
+  padding: 2px;
+  margin-bottom: 10px;
+  width: 120px;
+}
+
+.green {
+  color: green;
+}
+
+.orange {
+  color: orange;
+}
+
+.red {
+  color: red;
+}
+
+.positiveBox {
+  display: flex;
+  width: 300px;
+  height: 10px;
+  border: 1px solid rgba(128, 128, 128, 0.301);
+}
+
+.bgSize {
+  height: 100%;
+}
+
+.bgGreen {
+  background-color: green;
+}
+
+.bgOrange {
+  background-color: orange;
+}
