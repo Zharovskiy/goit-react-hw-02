@@ -25,6 +25,10 @@ const App = () => {
 
   const totalFeedback = reviews.good + reviews.neutral + reviews.bad;
 
+  const interest = Math.round(
+    ((reviews.good + reviews.neutral) / totalFeedback) * 100
+  );
+
   const updateFeedback = (feedbackType) => {
     if (feedbackType !== "reset") {
       setReviews({ ...reviews, [feedbackType]: reviews[feedbackType] + 1 });
@@ -40,20 +44,16 @@ const App = () => {
         text="Please leave your feedback about our service by selecting one of the options below."
       />
 
-      <Options text="good" updateFeedback={updateFeedback} />
-      <Options text="neutral" updateFeedback={updateFeedback} />
-      <Options text="bad" updateFeedback={updateFeedback} />
+      <Options totalFeedback={totalFeedback} updateFeedback={updateFeedback} />
 
       {totalFeedback > 0 ? (
-        <>
-          <Options text="reset" updateFeedback={updateFeedback} />
-          <Feedback
-            good={reviews.good}
-            neutral={reviews.neutral}
-            bad={reviews.bad}
-            totalFeedback={totalFeedback}
-          />
-        </>
+        <Feedback
+          good={reviews.good}
+          neutral={reviews.neutral}
+          bad={reviews.bad}
+          totalFeedback={totalFeedback}
+          interest={interest}
+        />
       ) : (
         <Notification />
       )}

@@ -1,8 +1,7 @@
 import clsx from "clsx";
 import css from "./Feedback.module.css";
 
-const Feedback = ({ good, neutral, bad, totalFeedback }) => {
-  const interest = Math.round(((good + neutral) / totalFeedback) * 100);
+const Feedback = ({ good, neutral, bad, totalFeedback, interest }) => {
   return (
     <>
       <p
