@@ -2,6 +2,7 @@ import clsx from "clsx";
 import css from "./Feedback.module.css";
 
 const Feedback = ({ good, neutral, bad, totalFeedback, interest }) => {
+  const pixelsPerPositive = (interest * 3) / (good + neutral);
   return (
     <>
       <p
@@ -29,13 +30,13 @@ const Feedback = ({ good, neutral, bad, totalFeedback, interest }) => {
       <p className={css.text}>Positive: {interest}%</p>
       <div className={css.positiveBox}>
         <div
-          style={{ width: ((interest * 3) / (good + neutral)) * neutral }}
+          style={{ width: pixelsPerPositive * neutral }}
           className={clsx(css.bgSize, {
             [css.bgOrange]: true,
           })}
         ></div>
         <div
-          style={{ width: ((interest * 3) / (good + neutral)) * good }}
+          style={{ width: pixelsPerPositive * good }}
           className={clsx(css.bgSize, {
             [css.bgGreen]: true,
           })}
